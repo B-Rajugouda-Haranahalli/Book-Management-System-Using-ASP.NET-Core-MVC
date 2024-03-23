@@ -1,0 +1,48 @@
+﻿@model Book
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .text-shadow {
+        text-shadow: 2px 2px 4px rgb(0 0 0 / 0.50);
+    }
+</style>
+
+<form method="post">
+    <div class="border-warning border-1 p-3 mt-4">
+
+        <div class="row pb-2">
+            <h1 class="text-danger text-shadow m-4">Want To Delete This Book</h1>
+            <hr class="hr-light" />
+        </div>
+
+        <div class="mb-3">
+            <label class="text-info" asp-for="BookName"></label>
+            <input asp-for="BookName" disabled class="form-control"  />
+        </div>
+
+        <div class="mb-3">
+            <label class="text-info" asp-for="Author"></label>
+            <input asp-for="Author" disabled class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label class="text-info" asp-for="Cost"></label>
+            <input asp-for="Cost" disabled class="form-control" />
+        </div>
+
+        <div class="mb-4">
+            <label class="text-info" asp-for="SellerName"></label>
+            <input asp-for="SellerName" disabled class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-outline-danger">Delete</button>
+
+        <a asp-controller="Book" asp-action="Index" class="btn btn-outline-warning float-end">Back To Inventry</a>
+
+    </div>
+
+</form>

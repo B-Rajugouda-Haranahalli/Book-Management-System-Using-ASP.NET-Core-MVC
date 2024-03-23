@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Book>
+
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .text-shadow {
+        text-shadow: 2px 2px 4px rgb(0 0 0 / 0.50);
+    }
+</style>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-9">
+            <h1 class="text-light text-shadow"> List of Books</h1>
+        </div>
+        <div class="col-3">
+            <a asp-controller="Book" asp-action="Create" class="btn btn-outline-light"><i class="bi bi-plus-circle-fill"></i> &nbsp; Add New Book </a>
+        </div>
+    </div>
+    <hr class="hr-light" />
+</div>
+
+
+<div class="container p-3">
+
+    <table class="table table-hover table-striped text-center text-shadow" width="100%">
+        <thead>
+            <tr class="table-primary">
+                <th scope="row">
+                    Book Name
+                </th>
+
+                <th scope="row">
+                    Author Name
+                </th>
+
+                <th scope="row">
+                    Price (in ₹)
+                </th>
+
+                <th scope="row">
+                    Seller Name
+                </th>
+
+                <th scope="row">
+                    Listed On
+                </th>
+                <th scope="row">
+                    Operations
+                </th>
+            </tr>
+        </thead>
+        <tbody class="mb-1">
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td>@obj.BookName</td>
+
+                    <td>@obj.Author</td>
+
+                    <td>@obj.Cost</td>
+
+                    <td>@obj.SellerName</td>
+
+                    <td>@obj.AddedOn.ToShortDateString()</td>
+
+                    <td>
+                        <a  class="btn btn-outline-info m-1"  asp-controller="Book" asp-action="Edit" asp-route-id="@obj.Id" style="width:auto"> <i class="bi bi-pencil-fill"></i>&nbsp;Edit</a>&nbsp;
+                        <a class="btn btn-outline-danger m-1" asp-controller="Book" asp-action="Delete" asp-route-id="@obj.Id"><i class="bi bi-trash3-fill"></i> &nbsp;Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

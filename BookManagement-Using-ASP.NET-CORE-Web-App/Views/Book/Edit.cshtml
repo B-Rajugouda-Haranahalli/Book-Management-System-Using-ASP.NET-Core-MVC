@@ -1,0 +1,59 @@
+﻿@model Book
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .text-shadow {
+        text-shadow: 2px 2px 4px rgb(0 0 0 / 0.50);
+    }
+</style>
+
+
+<form method="post">
+    <div class="border-warning border-1 p-3 mt-4">
+
+        <div class="row pb-2">
+            <h1 class="text-light text-shadow m-4">Update The Selected Book</h1>
+            <hr class="hr-light" />
+        </div>
+
+        <div class="mb-3">
+            <label class="text-info" asp-for="BookName"></label>
+            <input asp-for="BookName" class="form-control" placeholder="Enter Book Name" />
+            <span asp-validation-for="BookName" class="text-danger"></span>
+        </div>
+    
+     <div  class="mb-3">
+    <label class="text-info" asp-for="Author"></label>
+    <input asp-for="Author" class="form-control" placeholder="Enter the Author Name of the Book" />
+    <span asp-validation-for="Author" class="text-danger"></span>
+     </div>
+
+    <div class="mb-3">
+        <label class="text-info" asp-for="Cost"></label>
+        <input asp-for="Cost" class="form-control" placeholder="Update the Price of Book" />
+        <span asp-validation-for="Cost" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="text-info" asp-for="SellerName"></label>
+        <input asp-for="SellerName" class="form-control" placeholder="Update the Seller Name" />
+        <span asp-validation-for="SellerName" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-outline-success">Update</button>
+
+    <a asp-controller="Book" asp-action="Index" class="btn btn-outline-warning float-end">Back To Inventry</a>
+
+    </div>
+
+</form>
+
+@section Scripts{ 
+    @{ 
+        <partial name="_ValidationScriptsPartial.cshtml" />
+    }
+
+}
